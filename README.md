@@ -2,8 +2,10 @@
 Contains a list of software utilities and programs for financial calculations.
 - ### [Discounted Cash Flow](#dcf)
    Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+   <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/src/DCF/cash_flow_fig.png' width='30%' height='30%'>
+
 - ### [Value_Realization_Model](#vrm)
-   Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading senario for different proportions of informed and uninformed traders.
+   Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
    
 ## Prerequisites
 Python 3.5.0 or later.
@@ -33,8 +35,10 @@ The prompt will ask an input for the discounting rate.
 A cash_flow_fig_png file will be generated that contains the cash flow diagram.
 
 ### VRM 
+<p>
 The Value Realization Model uses a simple model to predict the probability of a high value or a low value for a stock given the sequence of buys(asks being lifted) or sells(bids being hit).        
 The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbssbs` or `BSBSBB`. 
+</p>
 
 Buy/sell sequences can also be entered through a text file containing these sequences as the first command line argument to the script_name.
 
