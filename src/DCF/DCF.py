@@ -46,7 +46,7 @@ for line in fp:
 npCF = np.array(cashFlowList)
 
 # Creating a bar chart showing the cash flows overtime
-plt.title("Cash Flows over time: Given a NPV of %.2f and yearly rate of %.2f" % (npv, d_rate))
+plt.title("Cash Flows over time: Given a NPV of %.2f and yearly rate of %.2f%%" % (npv, d_rate))
 plt.xlabel('Years (0 = current year )')
 plt.ylabel('Cash flow ($)')
 plt.bar(npCF[:,0], npCF[:,1], alpha=0.9, width=0.2 )
