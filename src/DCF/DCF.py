@@ -27,7 +27,7 @@ def presentVal ( futureVal, rate, time ):
 #  2,    1600
 
 fp = open( sys.argv[1], 'r')                                # CSV file must be entered as a cmd line argument
-d_rate = int(input("Enter discount rate per year: "))       # Discount rate entered as a percentage
+d_rate = float(input("Enter discount rate per year (i.e. 5):"))       # Discount rate entered as a percentage
 
 header = fp.readline().strip().split(',')                   # Generate header, a list containing the first two elems of the CSV file
 npv = 0                                                     # Net Present Value
@@ -46,7 +46,7 @@ for line in fp:
 npCF = np.array(cashFlowList)
 
 # Creating a bar chart showing the cash flows overtime
-plt.title("Cash Flows over time: Given a NPV of %.2f" % (npv))
+plt.title("Cash Flows over time: Given a NPV of %.2f and yearly rate of %.2f" % (npv, d_rate))
 plt.xlabel('Years (0 = current year )')
 plt.ylabel('Cash flow ($)')
 plt.bar(npCF[:,0], npCF[:,1], alpha=0.9, width=0.2 )
