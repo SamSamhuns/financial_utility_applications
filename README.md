@@ -1,25 +1,45 @@
 # financial-utility-programs
 Contains a list of software utilities and programs for financial calculations.
-1. ### [Discounted Cash Flow](#dcf)
-      Discounted Cash Flow Calculator that displays cash flows on a chart taking the inputs from cf.csv.
-2. ### [Value_Realization_Model](#vrm)
-      Probability modeling of binary stock value expectations from sequence of buys or sells for a stock.
+- ### [Discounted Cash Flow](#dcf)
+   Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+- ### [Value_Realization_Model](#vrm)
+   Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading senario for different proportions of informed and uninformed traders.
    
 ## Prerequisites
 Recommended Python 3.6.0 or later.
-
-To install dependencies in Linus and BSD based systems, use pip to install requirements
+In Linus and BSD based systems to install dependencies, use pip:
 ```
+git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
 ```
+In windows based systems, download the git repository and use Anaconda or pip for python package dependency managament.
 
 ## Running the scripts
 
-Individual instructions for running the utility scripts are present inside each python file as well.
+Individual instructions for running the utility scripts are also present inside each script.
+
+In Unix, Linux and other BSD based systems, use the following command in the bash shell to ensure python file is exeutable.
+```
+chmod u+x python_script.py
+```
 
 ### DCF
+The CSV file name must entered as the first command line argument for the DCF calculation to work.
+```
+python3 DCF.py <name_of_csv_file.csv>
+```
+The prompt will ask an input for the discounting rate.
+A cash_flow_fig_png file will be generated that contains the cash flow diagram.
 
 ### VRM 
+The Value Realization Model uses a simple model to predict the probability of a high value or a low value for a stock given the sequence of buys(asks being lifted) or sells(bids being hit).        
+The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbssbs` or `BSBSBB`. 
+
+Buy/sell sequences can also be entered through a text file containing these sequences as the first command line argument to the script_name.
+
+```
+python3 VRM.py <OPTIONAL-buy-sell-sequence.txt>
+```
 
 ## Built With
 
