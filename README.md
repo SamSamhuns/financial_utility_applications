@@ -6,8 +6,9 @@ Contains a list of software utilities and programs for financial calculations.
    Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading senario for different proportions of informed and uninformed traders.
    
 ## Prerequisites
-Recommended Python 3.6.0 or later.
-In Linus and BSD based systems to install dependencies, use pip:
+Python 3.5.0 or later.
+
+In Linux and BSD based systems to install dependencies, use pip:
 ```
 git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
@@ -16,7 +17,7 @@ In windows based systems, download the git repository and use Anaconda or pip fo
 
 ## Running the scripts
 
-Individual instructions for running the utility scripts are also present inside each script.
+All scripts are in the `src` file. Individual instructions for running the utility scripts are also present inside each python file.
 
 In Unix, Linux and other BSD based systems, use the following command in the bash shell to ensure python file is exeutable.
 ```
@@ -41,25 +42,25 @@ Buy/sell sequences can also be entered through a text file containing these sequ
 python3 VRM.py <OPTIONAL-buy-sell-sequence.txt>
 ```
 
-## Built With
+### Built With
 
 * [Python 3.6](https://www.python.org/downloads/release/python-360/) - The Programming tool used
 
-## Versioning
+### Versioning
 
 Version tracked directly with Github
 
-## Authors
+### Authors
 
 * **Samridha Shrestha**
 
-## License
+### License
 
 This project is licensed under the Apache 2.0 License - see the [License.md](License.md) file for details
 
-## Acknowledgments
+### Acknowledgments
 
 * Python open source libraries
 * Joel Hasbrouck, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201. http://people.stern.nyu.edu/jhasbrou/
 
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+### Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
