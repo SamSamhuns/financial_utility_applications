@@ -1,8 +1,8 @@
 # financial-utility-programs
 Contains a list of software utilities and programs for financial calculations.
-1. ### <a id='DCF_run'>DCF</a>
+1. ### [Discounted Cash Flow](#dcf)
       Discounted Cash Flow Calculator that displays cash flows on a chart taking the inputs from cf.csv.
-2. ### Value_Realization_Model
+2. ### [Value_Realization_Model](#vrm)
       Probability modeling of binary stock value expectations from sequence of buys or sells for a stock.
    
 ## Prerequisites
@@ -17,8 +17,9 @@ pip install -r requirements.txt
 
 Individual instructions for running the utility scripts are present inside each python file as well.
 
-<h3 id='DCF_run'>DCF</h4>
+### DCF
 
+### VRM 
 
 ## Built With
 
