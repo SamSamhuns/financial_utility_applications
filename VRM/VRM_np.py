@@ -183,15 +183,22 @@ buy_sell_prob_output.close()
 trade_arr_numpy = np.array( [ [i, trade_seq_array[i][1] , trade_seq_array[i][2]] for i in range(len(trade_seq_array)) ])
 
 # Generate bar graphs to show the probablities of a high or low price given the sequence of buys and sells
-plt.bar( x=trade_arr_numpy[:,0], height=trade_arr_numpy[:,1], color='g' , label='High Value probability', alpha=1, width=0.5 )
-plt.bar( x=trade_arr_numpy[:,0], height=trade_arr_numpy[:,2], color='r', label='Low Value probability', alpha=0.30, width=0.5 )
-plt.legend(loc='best') # for displaying both bar charts with the respective labels
 # mananging the graph labels
-plt.title('Probability of a High or Low final price after buys/sells')
-plt.ylabel('Probability')
-plt.xlabel('Trades (Buy = ask was lifted, Sell = bid was hit)')
+
+width = 0.35                # width of prob bars
+ind = trade_arr_numpy[:,0]  # generating the x axix number lables
+fig, ax = plt.subplots()    # creating ax and fig object
+high_bar = ax.bar(ind - width/2, trade_arr_numpy[:,1], width, color='green', label='High Value probability')
+low_bar = ax.bar(ind + width/2, trade_arr_numpy[:,2], width, color='#bb0000', label='Low Value probability')
+# getting the x ticks of buys and sells
 x_label_ticks = np.array( [ trade_seq_array[i][0] for i in range(len(trade_seq_array)) ] )
-plt.xticks( trade_arr_numpy[:,0], x_label_ticks )
+
+ax.set_title('Probability of a High or Low final price after buys/sells')
+ax.set_ylabel('Probability')
+ax.set_xlabel('Trades (Buy = ask was lifted, Sell = bid was hit)')
+ax.set_xticks(ind)
+ax.set_xticklabels( x_label_ticks )
+ax.legend()
 
 plt.savefig('high_low_prob_output.png')
 plt.show()
