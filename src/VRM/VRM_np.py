@@ -10,20 +10,36 @@ import os
 import sys
 import matplotlib.pyplot as plt
 
+# printing information on model
+print("\nValue here is the end of day closing price unknown to everyone except informed traders.")
+print("At the start of the day, the final value of the stock is unknown and has a 50/50 chance of being low or high")
+print("Informed traders will always buy if the actual value is high and always sell if it's low.")
+print("Uninformed traders have 50% chance of buying or selling regardless of the stock's final value.\n")
+
+# uninformed traders always have a 50% chance of buying or selling given regardless of the value
+prob_uninformed_buy_sell = 0.5
+# informed traders will always buy if value is high and sell if value is low
+prob_informed_buy_if_high = 1.0
+prob_informed_sell_if_high = 0
+prob_informed_buy_if_low = 0
+prob_informed_sell_if_low = 1.0
+
 # class to hold all the probability tree information and related probabilities
-class trade_prob_class:
+class trade_prob_tree:
     def __init__(self, value_high, value_low ):
         # IMPORTANT all probabilities are joint in a strutured probability tree
-        #                               -Buy
-        #                  - Informed --
-        #          - Low--              -Sell     -- Buy
-        #        -         - Uninformed - - - - -
-        # Value -                       -Buy      -- Sell
-        #        -         - informed --
-        #          - High--             -Sell     -- Buy
-        #                  - Uninformed - - - - -
-        #                                         -- Sell
-        ##########################################################################################################################
+        #                                         -- Buy                      #
+        #                  - Uninformed - - - - -                             #
+        #          - Low--              -Buy      -- Sell                     #
+        #        -         - Informed --                                      #
+        #       -                       -Sell                                 #
+        # Value -                                                             #
+        #       -                       -Buy                                  #
+        #        -         - informed --                                      #
+        #          - High--             -Sell     -- Buy                      #
+        #                  - Uninformed - - - - -                             #
+        #                                         -- Sell                     #
+        #######################################################################
 
         self.value_high_prob = value_high               # Prob that the stock value is high at the end of the day
         self.value_low_prob = value_low                 # Prob that the stock value is low at the end of the day
@@ -50,13 +66,6 @@ def f_trade_seq_str_read ( fp, trade_seq_str_holder ):
         seq = seq.replace( ' ', '' )
         trade_seq_str_holder += seq
     return trade_seq_str_holder
-
-# printing information on model
-print("\nValue here is the end of day closing price unknown to everyone except informed traders.")
-print("At the start of the day, the final value of the stock is unknown and has a 50/50 chance of being low or high")
-print("Informed traders will always buy if the actual value is high and always sell if it's low.")
-print("Uninformed traders have 50% chance of buying or selling regardless of the stock's final value.")
-
 
 # if no args are entered
 if len(sys.argv) == 1:
@@ -92,7 +101,7 @@ for file in old_file_list:
     os.remove(file)
 
 # In the beginning the probability of a high or low closing stock value is 50/50
-trade_prob_obj = trade_prob_class(0.5, 0.5)
+main_tree = trade_prob_tree(0.5, 0.5)                                                         # Creating a trade_prob_tree object
 informed_prop = 0                                                                             # Proportion of informed traders
 
 # making sure a valid informed user proportion has been entered
@@ -104,16 +113,67 @@ while True:
 
 uninformed_prop = 1 - informed_prop                                                           # Proportion of uninformed traders
 
-trade_seq_array = [['Open', trade_prob_obj.value_high_prob, trade_prob_obj.value_low_prob]]   #
+
+# array to hold sequences of trades and the respective probabilities of a high or low price
+# At the open, the high and low value probabilities are both 50/50
+trade_type = 'Open'
+trade_seq_array = [[trade_type, main_tree.value_high_prob, main_tree.value_low_prob]]         # [ trade_type, value_high, value_low ]
 
 for trade in trade_seq_str:
+
     # if next trade is a buy
     if trade == 'b':
+        trade_type = 'Buy'
+        # using rules of conditional probability
+        denominator_prob = (main_tree.buy_given_informed_low + main_tree.buy_given_informed_high \
+        + main_tree.buy_given_uninformed_low + main_tree.buy_given_uninformed_high )
+
+        # Calculate the probability for the stock to end up with a low or a high value
+        # given an ask was lifted in the previous trade (Buy)
+        main_tree.value_low_prob = (main_tree.buy_given_informed_low + \
+        main_tree.buy_given_uninformed_low) / denominator_prob
+
+        main_tree.value_high_prob = (main_tree.buy_given_informed_high + \
+        main_tree.buy_given_uninformed_high) / denominator_prob
 
     # if it is a sell
     else:
+        trade_type = 'Sell'
+        # using rules of conditional probability
+        denominator_prob = (main_tree.sell_given_informed_low + main_tree.sell_given_informed_high \
+        + main_tree.sell_given_uninformed_low + main_tree.sell_given_uninformed_high )
 
+        # Calculate the probability for the stock to end up with a low or a high value
+        # given a bit was hit in the previous trade (Sell)
+        main_tree.value_low_prob = (main_tree.sell_given_informed_low + \
+        main_tree.sell_given_uninformed_low) / denominator_prob
 
+        main_tree.value_high_prob = (main_tree.sell_given_informed_high + \
+        main_tree.sell_given_uninformed_high) / denominator_prob
 
-print( informed_prop )
-print( trade_seq_str )
+    # Update the probablities for all the different branches in the probability tree
+    main_tree.informed_given_low = main_tree.value_low_prob * informed_prop
+    main_tree.uninformed_given_low = main_tree.value_low_prob * uninformed_prop
+    main_tree.informed_given_high = main_tree.value_high_prob * informed_prop
+    main_tree.uninformed_given_high = main_tree.value_high_prob * uninformed_prop
+
+    main_tree.buy_given_informed_low = prob_informed_buy_if_low * main_tree.informed_given_low
+    main_tree.sell_given_informed_low = prob_informed_sell_if_low * main_tree.informed_given_low
+    main_tree.buy_given_uninformed_low = prob_uninformed_buy_sell * main_tree.uninformed_given_low
+    main_tree.sell_given_uninformed_low = prob_uninformed_buy_sell * main_tree.uninformed_given_low
+    main_tree.buy_given_informed_high = prob_informed_buy_if_high * main_tree.informed_given_high
+    main_tree.sell_given_informed_high = prob_informed_sell_if_high * main_tree.informed_given_high
+    main_tree.buy_given_uninformed_high = prob_uninformed_buy_sell * main_tree.uninformed_given_high
+    main_tree.sell_given_uninformed_high = prob_uninformed_buy_sell * main_tree.uninformed_given_high
+
+    # Add the probability to the trade_seq_array
+    trade_seq_array.append([ trade_type, main_tree.value_high_prob, main_tree.value_low_prob])
+
+# Open a new file to store the probabilities of a high or a low value given different types of trades
+buy_sell_prob_output = open('buy_sell_output_probs.txt', 'w')
+# print the header in the file
+print( ('%s \t %s \t %s') % ( 'Trade type', 'High Value Prob', 'Low Value Prob'), file=buy_sell_prob_output )
+for trade_arr in trade_seq_array:
+    print( ('%s \t\t %.5f \t\t %.5f') % (trade_arr[0], trade_arr[1] , trade_arr[2]), file=buy_sell_prob_output )
+
+buy_sell_prob_output.close()
