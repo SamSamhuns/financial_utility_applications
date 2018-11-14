@@ -6,6 +6,7 @@ Contains a list of software utilities and programs for financial calculations.
 
 - ### [Value_Realization_Model](#vrm)
    Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
+    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/src/VRM/fig_output/high_low_prob_output.png' width='65%' height='30%'>
    
 ## Prerequisites
 Python 3.5.0 or later.
@@ -37,7 +38,7 @@ A cash_flow_fig_png file will be generated that contains the cash flow diagram.
 ### VRM 
 <p>
 The Value Realization Model uses a simple model to predict the probability of a high value or a low value for a stock given the sequence of buys(asks being lifted) or sells(bids being hit).        
-The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbssbs` or `BSBSBB`. 
+The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbssbs` or `BSBSBB`. And to enter the proportion of informed traders assumed to be present in the market.
 </p>
 
 Buy/sell sequences can also be entered through a text file containing these sequences as the first command line argument to the script_name.
