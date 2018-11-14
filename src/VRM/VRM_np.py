@@ -8,6 +8,7 @@ the first command line argument to the script_name.
 '''
 import os
 import sys
+import numpy as np
 import matplotlib.pyplot as plt
 
 # printing information on model
@@ -28,17 +29,17 @@ prob_informed_sell_if_low = 1.0
 class trade_prob_tree:
     def __init__(self, value_high, value_low ):
         # IMPORTANT all probabilities are joint in a strutured probability tree
-        #                                         -- Buy                      #
+        #                                         --Buy                       #
         #                  - Uninformed - - - - -                             #
-        #          - Low--              -Buy      -- Sell                     #
+        #          - Low--              -Buy      --Sell                      #
         #        -         - Informed --                                      #
         #       -                       -Sell                                 #
         # Value -                                                             #
         #       -                       -Buy                                  #
         #        -         - informed --                                      #
-        #          - High--             -Sell     -- Buy                      #
+        #          - High--             -Sell     --Buy                       #
         #                  - Uninformed - - - - -                             #
-        #                                         -- Sell                     #
+        #                                         --Sell                      #
         #######################################################################
 
         self.value_high_prob = value_high               # Prob that the stock value is high at the end of the day
@@ -167,13 +168,30 @@ for trade in trade_seq_str:
     main_tree.sell_given_uninformed_high = prob_uninformed_buy_sell * main_tree.uninformed_given_high
 
     # Add the probability to the trade_seq_array
-    trade_seq_array.append([ trade_type, main_tree.value_high_prob, main_tree.value_low_prob])
+    trade_seq_array.append([ trade_type, round(main_tree.value_high_prob, 5), round(main_tree.value_low_prob,5)])
 
 # Open a new file to store the probabilities of a high or a low value given different types of trades
-buy_sell_prob_output = open('buy_sell_output_probs.txt', 'w')
+buy_sell_prob_output = open('high_low_probs_output.txt', 'w')
 # print the header in the file
 print( ('%s \t %s \t %s') % ( 'Trade type', 'High Value Prob', 'Low Value Prob'), file=buy_sell_prob_output )
+# print all the probablities into an output file
 for trade_arr in trade_seq_array:
-    print( ('%s \t\t %.5f \t\t %.5f') % (trade_arr[0], trade_arr[1] , trade_arr[2]), file=buy_sell_prob_output )
+    print( trade_arr[0], trade_arr[1] , trade_arr[2], file=buy_sell_prob_output, sep='\t\t' )
 
 buy_sell_prob_output.close()
+# generate a numpy array for holding the high/low probability information
+trade_arr_numpy = np.array( [ [i, trade_seq_array[i][1] , trade_seq_array[i][2]] for i in range(len(trade_seq_array)) ])
+
+# Generate bar graphs to show the probablities of a high or low price given the sequence of buys and sells
+plt.bar( x=trade_arr_numpy[:,0], height=trade_arr_numpy[:,1], color='g' , label='High Value probability', alpha=1, width=0.5 )
+plt.bar( x=trade_arr_numpy[:,0], height=trade_arr_numpy[:,2], color='r', label='Low Value probability', alpha=0.30, width=0.5 )
+plt.legend(loc='best') # for displaying both bar charts with the respective labels
+# mananging the graph labels
+plt.title('Probability of a High or Low final price after buys/sells')
+plt.ylabel('Probability')
+plt.xlabel('Trades (Buy = ask was lifted, Sell = bid was hit)')
+x_label_ticks = np.array( [ trade_seq_array[i][0] for i in range(len(trade_seq_array)) ] )
+plt.xticks( trade_arr_numpy[:,0], x_label_ticks )
+
+plt.savefig('high_low_prob_output.png')
+plt.show()
