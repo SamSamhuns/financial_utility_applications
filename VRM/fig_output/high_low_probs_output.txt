@@ -1,10 +1,7 @@
 Trade type 	 High Value Prob 	 Low Value Prob
 Open		0.5		0.5
 Buy		0.6		0.4
-Sell		0.5		0.5
+Buy		0.85714		0.14286
+Sell		0.6		0.4
+Sell		0.27273		0.72727
 Buy		0.6		0.4
-Sell		0.5		0.5
-Buy		0.6		0.4
-Sell		0.5		0.5
-Buy		0.6		0.4
-Sell		0.5		0.5
