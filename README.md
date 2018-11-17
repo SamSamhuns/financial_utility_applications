@@ -13,22 +13,29 @@ Python 3.5.0 or later.
 
 Virtual environment packages with `virtualenv` or `anaconda` are recommended for both Windows and Linux/BSD based systems.
 
-For Linux/BSD based systems, install the required python packages using pip.
+<b>Linux/BSD </b>
+
+After cloning the repository, install the required python packages using pip.
 ```
 git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
 ```
-For Windows systems, install python from https://www.python.org/downloads/ and add python to your `PATH` system variable.
-Download a copy of this github repository.
+<b>Windows </b>
 
-Install the `pip` package as well.
+Download a copy of this github repository at https://github.com/SamSamhuns/financial-utility-programs.
+Two options are available after this:
 
-The `pip install -r requirements.txt` command now be used in the command prompt.
-<a href='https://www.anaconda.com/download/#macos'>Anaconda </a> is recommended for Windows system.
+-    <a href='https://www.anaconda.com/download/#macos'>Anaconda </a> is recommended for Windows system.
+Use the following command in the anaconda prompt to install the requirements.txt in ananconda.
+`conda install --yes --file requirements.txt`
+
+-    Install python from https://www.python.org/downloads/ and add python to your `PATH` system variable and install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package as well.                The `pip install -r requirements.txt` command now be used in the command prompt.
+
 
 ## Running the scripts
 
-All scripts are in the `src` file. Individual instructions for running the utility scripts are also present inside each python file.
+Individual instructions for running the utility scripts are also present inside each python file. 
+The instructions are equivalent for both Windows and Linux/BSD systems given that python has been added to the PATH system variable in Windows systems.
 
 In Unix, Linux and other BSD based systems, use the following command in the bash shell to ensure python file is exeutable.
 ```
