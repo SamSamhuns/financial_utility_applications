@@ -1,10 +1,10 @@
 # financial-utility-programs
 Contains a list of software utilities and programs for financial calculations.
-- ### [Discounted Cash Flow](#dcf)
+-   ## [Discounted Cash Flow](#dcf)
    Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/DCF/cash_flow_fig.png' width='65%' height='30%'>
 
-- ### [Value_Realization_Model](#vrm)
+-   ## [Value_Realization_Model](#vrm)
    Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/VRM/fig_output/high_low_prob_output.png' width='65%' height='30%'>
    
@@ -12,10 +12,12 @@ Contains a list of software utilities and programs for financial calculations.
 Python 3.5.0 or later.
 
 In Linux and BSD based systems to install dependencies, use pip:
+
 ```
 git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
 ```
+
 In windows based systems, download the git repository and use Anaconda or pip for python package dependency managament.
 
 ## Running the scripts
@@ -49,7 +51,7 @@ python3 VRM.py <OPTIONAL-buy-sell-sequence.txt>
 
 ### Built With
 
-* [Python 3.6](https://www.python.org/downloads/release/python-360/) - The Programming tool used
+-   [Python 3.6](https://www.python.org/downloads/release/python-360/) - The Programming tool used
 
 ### Versioning
 
@@ -57,7 +59,7 @@ Version tracked directly with Github
 
 ### Authors
 
-* **Samridha Shrestha**
+-   **Samridha Shrestha**
 
 ### License
 
@@ -65,7 +67,7 @@ This project is licensed under the Apache 2.0 License - see the [License.md](Lic
 
 ### Acknowledgments
 
-* Python open source libraries
-* Joel Hasbrouck, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201. http://people.stern.nyu.edu/jhasbrou/
+-   Python open source libraries
+-   Joel Hasbrouck, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201. http://people.stern.nyu.edu/jhasbrou/
 
 ### Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
