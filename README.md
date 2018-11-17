@@ -11,14 +11,20 @@ Contains a list of software utilities and programs for financial calculations.
 ## Prerequisites
 Python 3.5.0 or later.
 
-In Linux and BSD based systems to install dependencies, use pip:
+Virtual environment packages with `virtualenv` or `anaconda` are recommended for both Windows and Linux/BSD based systems.
 
+For Linux/BSD based systems, install the required python packages using pip.
 ```
 git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
 ```
+For Windows systems, install python from https://www.python.org/downloads/ and add python to your `PATH` system variable.
+Download a copy of this github repository.
 
-In windows based systems, download the git repository and use Anaconda or pip for python package dependency managament.
+Install the `pip` package as well.
+
+The `pip install -r requirements.txt` command now be used in the command prompt.
+<a href='https://www.anaconda.com/download/#macos'>Anaconda </a> is recommended for Windows system.
 
 ## Running the scripts
 
