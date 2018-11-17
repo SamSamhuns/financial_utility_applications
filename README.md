@@ -11,16 +11,17 @@ Contains a list of software utilities and programs for financial calculations.
 ## Prerequisites
 Python 3.5.0 or later.
 
+## Installing
 Virtual environment packages with `virtualenv` or `anaconda` are recommended for both Windows and Linux/BSD based systems.
 
-<b>Linux/BSD </b>
+### Linux/BSD
 
 After cloning the repository, install the required python packages using pip.
 ```
 git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
 ```
-<b>Windows </b>
+### Windows
 
 Download a copy of this github repository at https://github.com/SamSamhuns/financial-utility-programs.
 Two options are available after this:
