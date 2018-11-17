@@ -27,10 +27,10 @@ Download a copy of this github repository at https://github.com/SamSamhuns/finan
 Two options are available after this:
 
 -    <a href='https://www.anaconda.com/download/#macos'>Anaconda </a> is recommended for Windows system.
-Use the following command in the anaconda prompt to install the requirements.txt in ananconda.
+Use the following command in the anaconda prompt to install modules from requirements.txt.
 `conda install --yes --file requirements.txt`
 
--    Install python from https://www.python.org/downloads/ and add python to your `PATH` system variable and install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package as well.                The `pip install -r requirements.txt` command now be used in the command prompt.
+-    Install <a href='https://www.python.org/downloads/'>`python`</a> and add it to your `PATH` system variable. Then install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package.                The `pip install -r requirements.txt` command now be used in the command prompt.
 
 
 ## Running the scripts
