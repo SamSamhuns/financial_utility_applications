@@ -1,11 +1,11 @@
 # financial-utility-programs
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Discounted Cash Flow](#dcf)
-   Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/DCF/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
-   Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
+Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/VRM/fig_output/high_low_prob_output.png' width='65%' height='30%'>
    
 ## Prerequisites
@@ -17,21 +17,20 @@ Virtual environment packages with `virtualenv` or `anaconda` are recommended for
 ### Linux/BSD
 
 After cloning the repository, install the required python packages using pip.
-```
+```git
 git clone https://github.com/SamSamhuns/financial-utility-programs
 pip install -r requirements.txt
 ```
 ### Windows
 
-Download a copy of this github repository at https://github.com/SamSamhuns/financial-utility-programs.
+Download a copy of this <a href='https://github.com/SamSamhuns/financial-utility-programs'>github repository. </a>
 Two options are available after this:
 
--    <a href='https://www.anaconda.com/download/#macos'>Anaconda </a> is recommended for Windows system.
+-   <a href='https://www.anaconda.com/download/#macos'>`Anaconda`</a> is recommended for Windows system.
 Use the following command in the anaconda prompt to install modules from requirements.txt.
 `conda install --yes --file requirements.txt`
 
--    Install <a href='https://www.python.org/downloads/'>`python`</a> and add it to your `PATH` system variable. Then install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package.                The `pip install -r requirements.txt` command now be used in the command prompt.
-
+-   Install <a href='https://www.python.org/downloads/'>`python`</a> and add it to your `PATH` system variable. Then install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package.                The `pip install -r requirements.txt` command now be used in the command prompt.
 
 ## Running the scripts
 
@@ -82,6 +81,6 @@ This project is licensed under the Apache 2.0 License - see the [License.md](Lic
 ### Acknowledgments
 
 -   Python open source libraries
--   Joel Hasbrouck, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201. http://people.stern.nyu.edu/jhasbrou/
+-   <a href='http://people.stern.nyu.edu/jhasbrou/'>Joel Hasbrouck</a>, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201. 
 
 ### Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
