@@ -36,7 +36,7 @@ def monthly_return( eticker ):
 
 
 def main():
-    if len(sys.argv) != 2 or len(sys.argv) != 3:
+    if len(sys.argv) != 2 and len(sys.argv) != 3:
         print('Usage main_RAV.py <yahoo_finance_returns_CSV> <Optional_risk_free_rate>')
         sys.exit()
     ticker = pd.read_csv( sys.argv[1] )
