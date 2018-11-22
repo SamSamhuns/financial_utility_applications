@@ -2,11 +2,11 @@
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Discounted Cash Flow](#dcf)
 Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
-   <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/DCF/cash_flow_fig.png' width='65%' height='30%'>
+   <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
 Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
-    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/VRM/fig_output/high_low_prob_output.png' width='65%' height='30%'>
+    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Value Realization Model/fig_output/high_low_prob_output.png' width='65%' height='30%'>
    
 ## Prerequisites
 Python 3.5.0 or later.
