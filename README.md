@@ -46,7 +46,7 @@ chmod u+x python_script.py
 ### DCF
 The CSV file name must entered as the first command line argument for the DCF calculation to work.
 ```
-python3 DCF.py <name_of_csv_file.csv>
+python3 DCF.py <yearly_discount_rate> <name_of_csv_file.csv>
 ```
 The prompt will ask an input for the discounting rate.
 A cash_flow_fig_png file will be generated that contains the cash flow diagram.
