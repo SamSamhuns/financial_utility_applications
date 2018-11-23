@@ -1,4 +1,5 @@
-# financial-utility-programs
+# financial-utility-programs [![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-programs.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-programs)
+
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Discounted Cash Flow](#dcf)
 Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
