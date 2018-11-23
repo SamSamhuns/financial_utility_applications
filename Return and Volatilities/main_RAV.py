@@ -12,8 +12,8 @@ from datetime import datetime
 def calc_summary_gen( eticker, annul_factor ):
     summary = eticker.describe()
 
-    annul_return = eticker['Monthly Returns'].mean() * annul_factor
-    annul_volatility = eticker['Monthly Returns'].std() * np.sqrt(annul_factor)
+    annul_return = eticker.iloc[:,7].mean() * annul_factor
+    annul_volatility = eticker.iloc[:,7].std() * np.sqrt(annul_factor)
     sharpe_ratio = 0
     # check if the optional risk free rate has been entered
     if len(sys.argv) == 3:
