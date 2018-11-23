@@ -3,6 +3,10 @@ Script to parse security returns CSV file
 The CSV files must be generated from yahoo-finance ( Using an API or a CSV download )
 CSV Format: Date, Open, High, Low, Close, Adj, Close, Volume
 '''
+# Author: Samridha Man Shrestha
+# 2018-11-22
+# Using Python 3
+
 import sys
 import csv
 import numpy as np
