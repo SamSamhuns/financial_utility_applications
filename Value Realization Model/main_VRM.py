@@ -77,7 +77,7 @@ elif len(sys.argv) == 2:
     trade_seq_str = f_trade_seq_str_read( f_trade_seq_str, trade_seq_str )
     f_trade_seq_str.close()
 else:
-    print('Usage VRM.py <Optional-f_trade_seq_str.txt>')
+    print('Usage main_VRM.py <Optional-f_trade_seq_str.txt>')
     sys.exit()
 
 # trade seq error checking for invalid inputs
