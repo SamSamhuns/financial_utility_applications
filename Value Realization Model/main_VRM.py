@@ -6,12 +6,14 @@ The script will prompt the user to enter a sequence of buy(s)/sell(s) with trade
 Buy/sell sequences can also be entered through a text file containing these sequences as
 the first command line argument to the script_name.
 '''
-import os
-# check for displays so that the script runs smoothly in all environments
-# if os.environ.get('DISPLAY','') == '':
-#     print('No display found. Using non-interactive Agg backend')
+# Author: Samridha Man Shrestha
+# 2018-11-23
+# Using Python 3
+
+# Using agg display for server check compatibility
 import matplotlib as mpl
 mpl.use('Agg')
+import os
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
