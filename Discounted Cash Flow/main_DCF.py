@@ -9,6 +9,8 @@ discount rate has to be entered separately.
 # Author: Samridha Man Shrestha
 # 2018-11-12
 # Using Python 3
+import matplotlib as mpl
+mpl.use('Agg')
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
