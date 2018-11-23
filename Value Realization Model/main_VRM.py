@@ -9,7 +9,9 @@ the first command line argument to the script_name.
 import os
 import sys
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 
 # printing information on model
 print("\nValue here is the end of day closing price unknown to everyone except informed traders.")
