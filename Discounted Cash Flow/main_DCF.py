@@ -27,8 +27,16 @@ def presentVal ( futureVal, rate, time ):
 #  2,    1600
 
 def main():
-    fp = open( sys.argv[1], 'r')                                # CSV file must be entered as a cmd line argument
-    d_rate = float(input("Enter discount rate per year (i.e. 5):"))       # Discount rate entered as a percentage
+    if len(sys.argv) != 3:
+        print("Usage: python main_DCF.py <DISCOUNT RATE> <CSV FILE>")
+        sys.exit()
+    # Error check
+    try:
+        fp = open( sys.argv[2], 'r')
+        d_rate = float(sys.argv[1])       # Discount rate entered as a percentage
+    except:
+        print("Usage: python main_DCF.py <DISCOUNT RATE> <CSV FILE>")
+        sys.exit()
 
     header = fp.readline().strip().split(',')                   # Generate header, a list containing the first two elems of the CSV file
     npv = 0                                                     # Net Present Value
@@ -55,6 +63,6 @@ def main():
 
     plt.show()
     fp.close()
-    
-if __name__ = "__main__":
+
+if __name__ == "__main__":
     main()
