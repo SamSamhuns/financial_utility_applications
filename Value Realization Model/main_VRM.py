@@ -7,11 +7,14 @@ Buy/sell sequences can also be entered through a text file containing these sequ
 the first command line argument to the script_name.
 '''
 import os
+# check for displays so that the script runs smoothly in all environments
+# if os.environ.get('DISPLAY','') == '':
+#     print('No display found. Using non-interactive Agg backend')
+import matplotlib as mpl
+mpl.use('Agg')
 import sys
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
-matplotlib.use('Agg')
 
 # printing information on model
 print("\nValue here is the end of day closing price unknown to everyone except informed traders.")
