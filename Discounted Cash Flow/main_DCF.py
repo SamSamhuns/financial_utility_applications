@@ -26,31 +26,35 @@ def presentVal ( futureVal, rate, time ):
 #  1,    1500
 #  2,    1600
 
-fp = open( sys.argv[1], 'r')                                # CSV file must be entered as a cmd line argument
-d_rate = float(input("Enter discount rate per year (i.e. 5):"))       # Discount rate entered as a percentage
+def main():
+    fp = open( sys.argv[1], 'r')                                # CSV file must be entered as a cmd line argument
+    d_rate = float(input("Enter discount rate per year (i.e. 5):"))       # Discount rate entered as a percentage
 
-header = fp.readline().strip().split(',')                   # Generate header, a list containing the first two elems of the CSV file
-npv = 0                                                     # Net Present Value
-cashFlowList = []
+    header = fp.readline().strip().split(',')                   # Generate header, a list containing the first two elems of the CSV file
+    npv = 0                                                     # Net Present Value
+    cashFlowList = []
 
-# loop to go through the CSV file parsing each line to separate the years and cash flow
-# into a two dimensional array cashFlowList
-for line in fp:
-    line = line.strip().split(',')
-    cashFlowTemp = []
-    for i in range(len(header)):
-        cashFlowTemp.append( int(line[i]) )
-    cashFlowList.append(cashFlowTemp)
-    npv += presentVal(cashFlowTemp[1], d_rate, cashFlowTemp[0])
+    # loop to go through the CSV file parsing each line to separate the years and cash flow
+    # into a two dimensional array cashFlowList
+    for line in fp:
+        line = line.strip().split(',')
+        cashFlowTemp = []
+        for i in range(len(header)):
+            cashFlowTemp.append( int(line[i]) )
+        cashFlowList.append(cashFlowTemp)
+        npv += presentVal(cashFlowTemp[1], d_rate, cashFlowTemp[0])
 
-npCF = np.array(cashFlowList)
+    npCF = np.array(cashFlowList)
 
-# Creating a bar chart showing the cash flows overtime
-plt.title("Cash Flows over time: Given a NPV of %.2f and yearly rate of %.2f%%" % (npv, d_rate))
-plt.xlabel('Years (0 = current year )')
-plt.ylabel('Cash flow ($)')
-plt.bar(npCF[:,0], npCF[:,1], alpha=0.9, width=0.2 )
-plt.savefig( 'cash_flow_fig.png' )
+    # Creating a bar chart showing the cash flows overtime
+    plt.title("Cash Flows over time: Given a NPV of %.2f and yearly rate of %.2f%%" % (npv, d_rate))
+    plt.xlabel('Years (0 = current year )')
+    plt.ylabel('Cash flow ($)')
+    plt.bar(npCF[:,0], npCF[:,1], alpha=0.9, width=0.2 )
+    plt.savefig( 'cash_flow_fig.png' )
 
-plt.show()
-fp.close()
+    plt.show()
+    fp.close()
+    
+if __name__ = "__main__":
+    main()
