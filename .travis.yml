@@ -5,3 +5,4 @@ install:
   pip install -r requirements.txt
 script:
   python Value\ Realization\ Model/main_VRM.py < Value\ Realization\ Model/travis_input_chk
+  python Discounted\ Cash\ Flow/main_DCF.py 5.0 cf.csv
