@@ -46,7 +46,7 @@ chmod u+x python_script.py
 ### DCF
 The CSV file name must entered as the first command line argument for the DCF calculation to work.
 ```
-python3 DCF.py <name_of_csv_file.csv>
+python3 main_DCF.py <yearly_discount_rate> <name_of_csv_file.csv>
 ```
 The prompt will ask an input for the discounting rate.
 A cash_flow_fig_png file will be generated that contains the cash flow diagram.
@@ -60,7 +60,7 @@ The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbss
 Buy/sell sequences can also be entered through a text file containing these sequences as the first command line argument to the script_name.
 
 ```
-python3 VRM.py <OPTIONAL-buy-sell-sequence.txt>
+python3 main_VRM.py <OPTIONAL-buy-sell-sequence.txt>
 ```
 
 ### Built With
