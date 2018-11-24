@@ -8,6 +8,10 @@ Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a
 -   ## [Value_Realization_Model](#vrm)
 Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Value Realization Model/fig_output/high_low_prob_output.png' width='65%' height='30%'>
+    
+-   ## [Returns and Volatilities](#rav)
+Generate annualized summaries of returns and volatilities with the moving averages of different securities with the data downloaded as CSV from Yahoo Finance. </br>
+    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
    
 ## Prerequisites
 Python 3.5.0 or later.
@@ -48,7 +52,6 @@ The CSV file name must entered as the first command line argument for the DCF ca
 ```
 python3 main_DCF.py <yearly_discount_rate> <name_of_csv_file.csv>
 ```
-The prompt will ask an input for the discounting rate.
 A cash_flow_fig_png file will be generated that contains the cash flow diagram.
 
 ### VRM 
@@ -63,13 +66,33 @@ Buy/sell sequences can also be entered through a text file containing these sequ
 python3 main_VRM.py <OPTIONAL-buy-sell-sequence.txt>
 ```
 
+### RAV
+<p>
+The Returns and Volatilities model takes security returns data imported from the Yahoo Finance API or downloaded from Yahoo Finance as a CSV file. The returns can be download from Yahoo Finance or the `get_return_RAV.py` script can be used to directly download the return data in CSV. 
+</p>
+To download the CSV returns file using a script.
+
+```
+python get_returns_RAV.py <ticker_symbol>
+```
+
+To generate a summary of the returns and volatilities with their annualized calculations.
+
+```
+python main_RAV.py returns.csv
+```
+
+The returns.csv file must be in the same format downloaded from the <a href='https://finance.yahoo.com/quote/%5EGSPC/history?p=%5EGSPC'>Yahoo Finance historical prices section.</a></br>
+CSV file format `Date, Open, High, Low, Close, Adj Close, Volume`
+
+
 ### Built With
 
 -   [Python 3.6](https://www.python.org/downloads/release/python-360/) - The Programming tool used
 
 ### Versioning
 
-Version tracked directly with Github
+Version tracked directly with Git
 
 ### Authors
 
