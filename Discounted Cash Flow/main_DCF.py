@@ -40,7 +40,12 @@ def main():
         fp = open(sys.argv[2], 'r')
         # Discount rate entered as a percentage
         d_rate = float(sys.argv[1])
-    except:
+    except IOError:
+        print(sys.argv[2], " does not exist." )
+        print("Usage: python main_DCF.py <DISCOUNT RATE> <CSV FILE>")
+        sys.exit()
+    except ValueError:
+        print(sys.argv[1], " must be a number without %." )
         print("Usage: python main_DCF.py <DISCOUNT RATE> <CSV FILE>")
         sys.exit()
 
