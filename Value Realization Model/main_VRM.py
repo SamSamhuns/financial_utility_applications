@@ -2,14 +2,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 import os
-'''
+
+"""
 Utility Python program to generate a Value Realization Model.
 It uses a simple model to predict the probability of a high value or a
 low value for a stock given the sequence of buys(asks being lifted) or sells(bids being hit).
 The script will prompt the user to enter a sequence of buy(s)/sell(s) with trade prices like `bbssbs` or `BSBSBB`.
 Buy/sell sequences can also be entered through a text file containing these sequences as
 the first command line argument to the script_name.
-'''
+"""
+
 # Author: Samridha Man Shrestha
 # 2018-11-23
 # Using Python 3
