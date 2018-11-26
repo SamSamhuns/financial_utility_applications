@@ -7,3 +7,4 @@ script:
   python Value\ Realization\ Model/main_VRM.py < Value\ Realization\ Model/travis_input_chk
   python Discounted\ Cash\ Flow/main_DCF.py 5.0 cf.csv
   python Return\ and\ Volatilities/main_RAV.py Return\ and\ Volatilities/SP500_GSPC_daily.csv
+  python Return\ and\ Volatilities/security_csv.py AAPL 20140104 20150212 quote 1mo
