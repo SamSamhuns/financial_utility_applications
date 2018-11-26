@@ -40,37 +40,53 @@ def get_cookie_crumb():
     return {'cookie': cookie, 'crumb': crumb}
 
 
-def get_sec_data(ticker, begindate, enddate):
+def get_sec_data(ticker, begindate, enddate, dtype):
     cookie, crumb = None, None
     cc_result = get_cookie_crumb()
     cookie = cc_result['cookie']
     crumb = cc_result['crumb']
 
-    t_begin = time.mktime((int(begindate[0:4]), int(
-        begindate[4:6]), int(begindate[6:8]), 4, 0, 0, 0, 0, 0))
-    t_end = time.mktime((int(enddate[0:4]), int(
-        enddate[4:6]), int(enddate[6:8]), 18, 0, 0, 0, 0, 0))
+    # time.mktime() takes format ( tm_year, tm_month, tm_day, tm_hr, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst)
+    tm_year, tm_month, tm_day, = (int(begindate[0:4]), int(
+        begindate[4:6]), int(begindate[6:8])
+    t_begin=time.mktime(tm_year, tm_month, tm_day, 4, 0, 0, 0, 0, 0))
+    t_end = time.mktime(tm_year, tm_month, tm_day, 18, 0, 0, 0, 0, 0))
 
-    param = {}
-    param['period1'] = int(t_begin)
-    param['period2'] = int(t_end)
-    param['interval'] = '1d'
-    param['events'] = 'history'
-    param['crumb'] = crumb
+    # loading up the parameters for the historical data get request to yahoo finance
+    param={}
+    param['period1']=int(t_begin)
+    param['period2']=int(t_end)
+    param['interval']='1d'
+    if dtype == 'quote':
+        param['events']='history'
+    elif dtype == 'dividend':
+        param['events']='div'
+    elif dtype == 'split':
+        param['events']='split'
+    param['crumb']=crumb
 
-    url = 'http://query1.finance.yahoo.com/v7/finance/download/{}?'.format(
+    url='http://query1.finance.yahoo.com/v7/finance/download/{}?'.format(
         ticker)
-    resp2 = session.get(url, params=param, cookies=cookie)
+    resp2=session.get(url, params = param, cookies = cookie)
 
+    # Printing useful information
     # print(crumb, cookie)
     print(resp2.status_code)
     print(resp2.content)
 
 
-def main(ticker, start_date, end_date):
-    get_sec_data(ticker, start_date, end_date)
+def main():
+    if len(sys.argv) != 5 and (sys.argv[4]).lower() != 'quote' and (sys.argv[4]).lower() != 'split' and (sys.argv[4]).lower() != 'dividend':
+        print("Usage:security.csv <TICKER> <START_DATE_YYYYMMDD> <END_DATE_YYYYMMDD> <DATA_quote/dividend/split>")
+        sys.quit()
 
-# FORMAT example for func args ( 'DJI', '20170515', '20170526')
+    ticker=(sys.argv[1]).upper()
+    start_date=int(sys.argv[2].replace(' ', '').replace('-', ''))
+    end_date=int(sys.argv[3].replace(' ', '').replace('-', ''))
+    data_type=(sys.argv[4]).lower()
+    get_sec_data(ticker, start_date, end_date, data_type)
+
+# FORMAT example for func args ( 'DJI', '20170515', '20170526', 'quote')
 
 
-main('DJI', '20170515', '20180526')
+main()
