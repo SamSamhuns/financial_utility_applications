@@ -6,7 +6,11 @@ CSV Format: Date, Open, High, Low, Close, Adj, Close, Volume
 # Author: Samridha Man Shrestha
 # 2018-11-26
 # Using Python 3
+# Special acknowledgemnt to user c0redumb from GitHub
+# https://github.com/c0redumb/yahoo_quote_download
+# Who uses a similar implementation with urllib
 import sys
+import csv
 import time
 import requests
 
@@ -47,31 +51,33 @@ def get_sec_data(ticker, begindate, enddate, dtype, interval):
     crumb = cc_result['crumb']
 
     # time.mktime() takes format ( tm_year, tm_month, tm_day, tm_hr, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst)
-    t_begin = time.mktime((int(begindate[0:4]), int(begindate[4:6]), int(begindate[6:8]), 4, 0, 0, 0, 0, 0))
-    t_end = time.mktime((int(enddate[0:4]), int(enddate[4:6]), int(enddate[6:8]), 18, 0, 0, 0, 0, 0))
+    t_begin = time.mktime((int(begindate[0:4]), int(
+        begindate[4:6]), int(begindate[6:8]), 4, 0, 0, 0, 0, 0))
+    t_end = time.mktime((int(enddate[0:4]), int(
+        enddate[4:6]), int(enddate[6:8]), 18, 0, 0, 0, 0, 0))
 
     # loading up the parameters for the historical data get request to yahoo finance
-    param={}
-    param['period1']=int(t_begin)
-    param['period2']=int(t_end)
-    param['interval']='1mo'
+    param = {}
+    param['period1'] = int(t_begin)
+    param['period2'] = int(t_end)
+    param['interval'] = '1mo'
     if dtype == 'quote':
-        param['events']='history'
+        param['events'] = 'history'
     elif dtype == 'dividend':
-        param['events']='div'
+        param['events'] = 'div'
     elif dtype == 'split':
-        param['events']='split'
-    param['crumb']=crumb
+        param['events'] = 'split'
+    param['crumb'] = crumb
 
-    url='http://query1.finance.yahoo.com/v7/finance/download/{}?'.format(
+    url = 'http://query1.finance.yahoo.com/v7/finance/download/{}?'.format(
         ticker)
-    resp2=session.get(url, params=param, cookies=cookie)
+    response2 = session.get(url, params=param, cookies=cookie)
 
     # Printing useful information
     # print(crumb, cookie)
     # print( url, param )
-    print(resp2.status_code)
-    print(resp2.content)
+    print(response2.status_code)
+    print(response2.content)
 
 
 def main():
@@ -79,11 +85,14 @@ def main():
         print("Usage:security.csv <TICKER> <START_DATE_YYYYMMDD> <END_DATE_YYYYMMDD> <DATA_quote/dividend/split> <interval_1d/1wk/1mo>")
         sys.exit()
 
-    ticker=(sys.argv[1]).upper()
-    start_date=sys.argv[2].replace(' ', '').replace('-', '')
-    end_date=sys.argv[3].replace(' ', '').replace('-', '')
-    data_type=(sys.argv[4]).lower()
+    ticker = (sys.argv[1]).upper()
+    start_date = sys.argv[2].replace(' ', '').replace('-', '')
+    end_date = sys.argv[3].replace(' ', '').replace('-', '')
+    data_type = (sys.argv[4]).lower()
+    interval = sys.argv[5].lower()
     get_sec_data(ticker, start_date, end_date, data_type, interval)
 
+
 # FORMAT example for func args ( 'DJI', '20170515', '20170526', 'quote', '1mo')
-main()
+if __name__ == '__main__':
+    main()
