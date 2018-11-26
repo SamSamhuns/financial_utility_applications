@@ -3,12 +3,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
-'''
+
+"""
 Utility Python program for calculating Net Present Value of cash flows over a yearly period
 DCF Calculations for yearly cash flows
 All cash flows must be presented on a yearly basis in the form of a CSV file as described below
 discount rate has to be entered separately.
-'''
+"""
+
 # Author: Samridha Man Shrestha
 # 2018-11-12
 # Using Python 3
@@ -38,7 +40,12 @@ def main():
         fp = open(sys.argv[2], 'r')
         # Discount rate entered as a percentage
         d_rate = float(sys.argv[1])
-    except:
+    except IOError:
+        print(sys.argv[2], " does not exist." )
+        print("Usage: python main_DCF.py <DISCOUNT RATE> <CSV FILE>")
+        sys.exit()
+    except ValueError:
+        print(sys.argv[1], " must be a number without %." )
         print("Usage: python main_DCF.py <DISCOUNT RATE> <CSV FILE>")
         sys.exit()
 

@@ -11,7 +11,6 @@ import sys
 import csv
 import numpy as np
 import pandas as pd
-from datetime import datetime
 
 
 def calc_summary_gen(eticker, annul_factor):

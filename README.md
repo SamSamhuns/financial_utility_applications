@@ -2,16 +2,15 @@
 
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Discounted Cash Flow](#dcf)
-Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+     Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
-Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
+    Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Value Realization Model/fig_output/high_low_prob_output.png' width='65%' height='30%'>
-    
-    
+
 -   ## [Returns and Volatilities](#rav)
-   Generate annualized summaries of returns and volatilities with the moving averages of different securities with the data downloaded as CSV from Yahoo Finance. </br>
+    Generate annualized summaries of returns and volatilities with the moving averages of different securities with the data downloaded as CSV from Yahoo Finance. </br>
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
    
 ## Prerequisites
@@ -44,13 +43,13 @@ Individual instructions for running the utility scripts are also present inside 
 The instructions are equivalent for both Windows and Linux/BSD systems given that python has been added to the PATH system variable in Windows systems.
 
 In Unix, Linux and other BSD based systems, use the following command in the bash shell to ensure python file is exeutable.
-```
+```bash
 chmod u+x python_script.py
 ```
 
 ### DCF
 The CSV file name must entered as the first command line argument for the DCF calculation to work.
-```
+```bash
 python3 main_DCF.py <yearly_discount_rate> <name_of_csv_file.csv>
 ```
 A cash_flow_fig_png file will be generated that contains the cash flow diagram.
@@ -73,19 +72,18 @@ The Returns and Volatilities model takes security returns data imported from the
 </p>
 To download the CSV returns file using a script.
 
-```
+```bash
 python get_returns_RAV.py <ticker_symbol>
 ```
 
 To generate a summary of the returns and volatilities with their annualized calculations.
 
-```
+```bash
 python main_RAV.py returns.csv
 ```
 
 The returns.csv file must be in the same format downloaded from the <a href='https://finance.yahoo.com/quote/%5EGSPC/history?p=%5EGSPC'>Yahoo Finance historical prices section.</a></br>
 CSV file format `Date, Open, High, Low, Close, Adj Close, Volume`
-
 
 ### Built With
 
