@@ -2,13 +2,12 @@
 
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Discounted Cash Flow](#dcf)
-Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+   Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
-Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
+   Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Value Realization Model/fig_output/high_low_prob_output.png' width='65%' height='30%'>
-    
     
 -   ## [Returns and Volatilities](#rav)
    Generate annualized summaries of returns and volatilities with the moving averages of different securities with the data downloaded as CSV from Yahoo Finance. </br>
@@ -44,7 +43,7 @@ Individual instructions for running the utility scripts are also present inside 
 The instructions are equivalent for both Windows and Linux/BSD systems given that python has been added to the PATH system variable in Windows systems.
 
 In Unix, Linux and other BSD based systems, use the following command in the bash shell to ensure python file is exeutable.
-```
+```bash
 chmod u+x python_script.py
 ```
 
@@ -85,7 +84,6 @@ python main_RAV.py returns.csv
 
 The returns.csv file must be in the same format downloaded from the <a href='https://finance.yahoo.com/quote/%5EGSPC/history?p=%5EGSPC'>Yahoo Finance historical prices section.</a></br>
 CSV file format `Date, Open, High, Low, Close, Adj Close, Volume`
-
 
 ### Built With
 
