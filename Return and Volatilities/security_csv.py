@@ -76,8 +76,15 @@ def get_sec_data(ticker, begindate, enddate, dtype, interval):
     # Printing useful information
     # print(crumb, cookie)
     # print( url, param )
+    # print(response2.content)
     print(response2.status_code)
-    print(response2.content)
+
+    with open((ticker + '_' + begindate + '_' + enddate + '.csv'), 'w') as output_csv:
+        csv_file_writer = csv.writer(output_csv, delimiter=',')
+        loaded = csv.reader((response2.content).split('\n'), delimiter=',')
+        for row in loaded:
+            csv_file_writer.writerow(row)
+    output_csv.close()
 
 
 def main():
