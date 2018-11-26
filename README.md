@@ -1,6 +1,14 @@
 # financial-utility-programs [![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-programs.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-programs)
 
 Contains a list of software utilities and programs for financial calculations.
+-   ## [Yahoo Finance Quotes Downloader](#yahoo_finance_historical_data_download)
+    Download the Historical Open, High, Low, Close security prices in a CSV format from Yahoo Financial Pages.</br>
+    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/S&P500_OHLC.png' width='65%' height='30%'>
+    
+-   ## [Returns and Volatilities](#rav)
+    Generate annualized summaries of returns and volatilities with the moving averages of different securities with the data downloaded as CSV from Yahoo Finance. </br>
+    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
+    
 -   ## [Discounted Cash Flow](#dcf)
      Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
@@ -8,10 +16,6 @@ Contains a list of software utilities and programs for financial calculations.
 -   ## [Value_Realization_Model](#vrm)
     Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Value Realization Model/fig_output/high_low_prob_output.png' width='65%' height='30%'>
-
--   ## [Returns and Volatilities](#rav)
-    Generate annualized summaries of returns and volatilities with the moving averages of different securities with the data downloaded as CSV from Yahoo Finance. </br>
-    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
    
 ## Prerequisites
 Python 3.5.0 or later.
@@ -66,15 +70,50 @@ Buy/sell sequences can also be entered through a text file containing these sequ
 python3 main_VRM.py <OPTIONAL-buy-sell-sequence.txt>
 ```
 
-### RAV
+### Yahoo_Finance_Historical_Data_Download
 <p>
-The Returns and Volatilities model takes security returns data imported from the Yahoo Finance API or downloaded from Yahoo Finance as a CSV file. The returns can be download from Yahoo Finance or the `get_return_RAV.py` script can be used to directly download the return data in CSV. 
+Yahoo stopped its old EOD data download API as of May 2017 after the acquisition by Verizon.
+Yahoo financial EOD data, however, still works on Yahoo financial pages. These download links uses a "crumb" for authentication with a cookie "B". This code is provided to obtain such matching cookie and crumb. This code also downloads end of day stock quote from Yahoo finance.
 </p>
+Once the cookie/crumb is obtained, the querying URL is as following:
+
+```bash
+https://query1.finance.yahoo.com/v7/finance/download/TTTT?period1=pppppppp&period2=qqqqqqqq&interval=1mo&events=eeeeeeee&crumb=cccccccc
+```
+
+where
+
+-    TTTT - Ticker (e.g., DJI, AAPL, etc.)
+-    pppppppp - Period1 is the timestamp (POSIX time stamp) of the beginning date
+-    qqqqqqqq - Period2 is the timestamp (POSIX time stamp) of the ending date
+-    eeeeeeee - Event, can be one of 'history', 'div', or 'split'
+-    cccccccc - Crumb
+
+The resulting CSV file is in the format:
+`Date, Open, High, Low, Close, Adj Close, Volume`
+
+The new API is different from the old API in several ways:
+
+-    In the older API, the data fields were not adjusted.
+-    In the new CSV files the `Close` is adjusted for both dividends and splits, while the `Open, High, Low` are only adjusted for splits.
+-    The order of the rows for historical quote by the new API is chronical ( counter_chronical in the old API ).
+-    Some of the values are recorded as NULL in the new API.
+
 To download the CSV returns file using a script.
 
 ```bash
-python get_returns_RAV.py <ticker_symbol>
+python security_csv.py <ticker_symbol> <start_date_YYYYMMDD> <end_date_YYYYMMDD> <quote_or_dividend_or_split> <interval_1d_1wk_1mo>
 ```
+
+A possible example query to get GOOGL stock quotes from Jan 15, 2014 to Jan 18 2018 given a monthly interval:
+```bash
+python security_csv.py GOOGL 20140115 20180118 quote 1mo
+```
+
+### RAV
+<p>
+The Returns and Volatilities model takes security returns data imported from the Yahoo Finance API or downloaded from Yahoo Finance as a CSV file. The returns can be download from Yahoo Finance or the `security_csv.py` script can be used to directly download the return data in CSV. 
+</p>
 
 To generate a summary of the returns and volatilities with their annualized calculations.
 
@@ -104,6 +143,8 @@ This project is licensed under the Apache 2.0 License - see the [License.md](Lic
 ### Acknowledgments
 
 -   Python open source libraries
+-   Yahoo Finance 
+-   GitHub user c0redumb <a href="https://github.com/c0redumb/yahoo_quote_download">repository</a> on yahoo_quote_download
 -   <a href='http://people.stern.nyu.edu/jhasbrou/'>Joel Hasbrouck</a>, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201. 
 
 ### Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
