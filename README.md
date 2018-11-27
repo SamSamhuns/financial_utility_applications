@@ -1,6 +1,6 @@
 # financial-utility-programs 
 
-[![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-programs.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-programs) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
+[![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-programs.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-programs) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0af749bf2bbf4da696bca722188f6454)](https://www.codacy.com/app/samhunsadamant/financial-utility-programs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SamSamhuns/financial-utility-programs&amp;utm_campaign=Badge_Grade) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Yahoo Finance Quotes Downloader](#yahoo_finance_historical_data_download)
@@ -150,4 +150,6 @@ This project is licensed under the Apache 2.0 License - see the [License.md](Lic
 -   GitHub user c0redumb <a href="https://github.com/c0redumb/yahoo_quote_download">repository</a> on yahoo_quote_download
 -   <a href='http://people.stern.nyu.edu/jhasbrou/'>Joel Hasbrouck</a>, NYU Stern Principles of Securities Trading, FINC-UB.0049, Spring 201.
 
-### Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+### Contributing 
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
