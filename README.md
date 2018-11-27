@@ -1,4 +1,6 @@
-# financial-utility-programs [![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-programs.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-programs)
+# financial-utility-programs 
+
+[![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-programs.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-programs) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Yahoo Finance Quotes Downloader](#yahoo_finance_historical_data_download)
