@@ -5,6 +5,7 @@
 Contains a list of software utilities and programs for financial calculations.
 -   ## [Yahoo Finance Quotes Downloader](#yahoo_finance_historical_data_download)
     Download the Historical Open, High, Low, Close security prices in a CSV format from Yahoo Financial Pages.</br>
+    
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Yahoo Finance Quotes Downloader/S&P500_OHLC.png' width='65%' height='30%'>
 
 -   ## [Returns and Volatilities](#rav)
@@ -12,7 +13,7 @@ Contains a list of software utilities and programs for financial calculations.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
 
 -   ## [Discounted Cash Flow](#dcf)
-     Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+      Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
@@ -68,7 +69,7 @@ The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbss
 
 Buy/sell sequences can also be entered through a text file containing these sequences as the first command line argument to the script_name.
 
-```
+```bash
 python3 main_VRM.py <OPTIONAL-buy-sell-sequence.txt>
 ```
 
@@ -96,10 +97,10 @@ The resulting CSV file is in the format:
 
 The new API is different from the old API in several ways:
 
--    In the older API, the data fields were not adjusted.
--    In the new CSV files the `Close` is adjusted for both dividends and splits, while the `Open, High, Low` are only adjusted for splits.
--    The order of the rows for historical quote by the new API is chronical ( counter_chronical in the old API ).
--    Some of the values are recorded as NULL in the new API.
+-   In the older API, the data fields were not adjusted.
+-   In the new CSV files the `Close` is adjusted for both dividends and splits, while the `Open, High, Low` are only adjusted for splits.
+-   The order of the rows for historical quote by the new API is chronical ( counter_chronical in the old API ).
+-   Some of the values are recorded as NULL in the new API.
 
 To download the CSV returns file using a script.
 
