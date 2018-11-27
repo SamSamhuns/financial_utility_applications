@@ -86,11 +86,11 @@ https://query1.finance.yahoo.com/v7/finance/download/TTTT?period1=pppppppp&perio
 
 where
 
--    TTTT - Ticker (e.g., DJI, AAPL, etc.)
--    pppppppp - Period1 is the timestamp (POSIX time stamp) of the beginning date
--    qqqqqqqq - Period2 is the timestamp (POSIX time stamp) of the ending date
--    eeeeeeee - Event, can be one of 'history', 'div', or 'split'
--    cccccccc - Crumb
+-   TTTT - Ticker (e.g., DJI, AAPL, etc.)
+-   pppppppp - Period1 is the timestamp (POSIX time stamp) of the beginning date
+-   qqqqqqqq - Period2 is the timestamp (POSIX time stamp) of the ending date
+-   eeeeeeee - Event, can be one of 'history', 'div', or 'split'
+-   cccccccc - Crumb
 
 The resulting CSV file is in the format:
 `Date, Open, High, Low, Close, Adj Close, Volume`
