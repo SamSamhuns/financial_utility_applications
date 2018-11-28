@@ -12,4 +12,4 @@ before_install:
   - pip install codecov
   - CODECOV_TOKEN="7a78007a-2bbd-4079-a2af-99132bd787c3"
 after_success:
-  - codecov
+  - codecov --token=CODECOV_TOKEN
