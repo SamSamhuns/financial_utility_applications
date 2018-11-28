@@ -11,6 +11,5 @@ script:
 before_install:
   - pip install codecov
   - pip install coverage
-  - coverage run Value\ Realization\ Model/main_VRM.py < Value\ Realization\ Model/travis_input_chk
 after_success:
   - codecov
