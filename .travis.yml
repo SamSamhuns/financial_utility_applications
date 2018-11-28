@@ -10,6 +10,7 @@ script:
   python Yahoo\ Finance\ Quotes\ Downloader/security_csv.py AAPL 20140104 20150212 quote 1mo
 before_install:
   - pip install codecov
-  - CODECOV_TOKEN="7a78007a-2bbd-4079-a2af-99132bd787c3"
+  - pip install coverage
+  - coverage run Value\ Realization\ Model/main_VRM.py < Value\ Realization\ Model/travis_input_chk
 after_success:
-  - codecov --token=CODECOV_TOKEN
+  - codecov
