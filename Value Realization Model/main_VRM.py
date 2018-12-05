@@ -17,8 +17,8 @@ the first command line argument to the script_name.
 # Using Python 3
 
 # Using agg display for server check compatibility
-import matplotlib as mpl
-mpl.use('Agg')
+# import matplotlib as mpl
+# mpl.use('Agg')
 
 # printing information on model
 print("\nValue here is the end of day closing price unknown to everyone except informed traders.")
