@@ -152,4 +152,4 @@ This project is licensed under the Apache 2.0 License - see the [License.md](Lic
 
 ### Contributing 
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/SamSamhuns)
