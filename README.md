@@ -29,9 +29,9 @@ Virtual environment packages with `virtualenv` or `anaconda` are recommended for
 ### Linux/BSD
 
 After cloning the repository, install the required python packages using pip.
-```git
-git clone https://github.com/SamSamhuns/financial-utility-programs
-pip install -r requirements.txt
+```bash
+$ git clone https://github.com/SamSamhuns/financial-utility-programs
+$ pip install -r requirements.txt
 ```
 ### Windows
 
@@ -51,13 +51,13 @@ The instructions are equivalent for both Windows and Linux/BSD systems given tha
 
 In Unix, Linux and other BSD based systems, use the following command in the bash shell to ensure python file is exeutable.
 ```bash
-chmod u+x python_script.py
+$ chmod u+x python_script.py
 ```
 
 ### DCF
 The CSV file name must entered as the first command line argument for the DCF calculation to work.
 ```bash
-python3 main_DCF.py <yearly_discount_rate> <name_of_csv_file.csv>
+$ python3 main_DCF.py <yearly_discount_rate> <name_of_csv_file.csv>
 ```
 A cash_flow_fig_png file will be generated that contains the cash flow diagram.
 
@@ -70,7 +70,7 @@ The script will prompt the user to enter a sequence of buy(s)/sell(s) like `bbss
 Buy/sell sequences can also be entered through a text file containing these sequences as the first command line argument to the script_name.
 
 ```bash
-python3 main_VRM.py <OPTIONAL-buy-sell-sequence.txt>
+$ python3 main_VRM.py <OPTIONAL-buy-sell-sequence.txt>
 ```
 
 ### Yahoo_Finance_Historical_Data_Download
@@ -105,12 +105,12 @@ The new API is different from the old API in several ways:
 To download the CSV returns file using a script.
 
 ```bash
-python security_csv.py <ticker_symbol> <start_date_YYYYMMDD> <end_date_YYYYMMDD> <quote_or_dividend_or_split> <interval_1d_1wk_1mo>
+$ python security_csv.py <ticker_symbol> <start_date_YYYYMMDD> <end_date_YYYYMMDD> <quote_or_dividend_or_split> <interval_1d_1wk_1mo>
 ```
 
 A possible example query to get GOOGL stock quotes from Jan 15, 2014 to Jan 18 2018 given a monthly interval:
 ```bash
-python security_csv.py GOOGL 20140115 20180118 quote 1mo
+$ python security_csv.py GOOGL 20140115 20180118 quote 1mo
 ```
 
 ### RAV
@@ -121,7 +121,7 @@ The Returns and Volatilities model takes security returns data imported from the
 To generate a summary of the returns and volatilities with their annualized calculations.
 
 ```bash
-python main_RAV.py returns.csv
+$ python main_RAV.py returns.csv
 ```
 
 The returns.csv file must be in the same format downloaded from the <a href='https://finance.yahoo.com/quote/%5EGSPC/history?p=%5EGSPC'>Yahoo Finance historical prices section.</a></br>
