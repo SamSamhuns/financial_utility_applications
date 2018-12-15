@@ -8,8 +8,8 @@ script:
   python Discounted\ Cash\ Flow/main_DCF.py 5.0 cf.csv
   python Return\ and\ Volatilities/main_RAV.py Return\ and\ Volatilities/SP500_GSPC_daily.csv
   python Yahoo\ Finance\ Quotes\ Downloader/security_csv.py AAPL 20140104 20150212 quote 1mo
-before_install:
-  - pip install codecov
-  - pip install coverage
-after_success:
-  - codecov
+# before_install:
+#   - pip install codecov
+#   - pip install coverage
+# after_success:
+#   - codecov
