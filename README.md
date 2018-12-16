@@ -24,13 +24,15 @@ Contains a list of software utilities and programs for financial calculations.
 Python 3.5.0 or later.
 
 ## Installing
-Virtual environment packages with `virtualenv` or `anaconda` are recommended for both Windows and Linux/BSD based systems.
+Virtual environment packages with `virtualenv` or `anaconda` should be used for both Windows and Linux/BSD based systems.
 
 ### Linux/BSD
 
 After cloning the repository, install the required python packages using pip.
 ```bash
 $ git clone https://github.com/SamSamhuns/financial-utility-programs
+$ virtualenv venv
+$ source venv/bin/source
 $ pip install -r requirements.txt
 ```
 ### Windows
@@ -38,11 +40,19 @@ $ pip install -r requirements.txt
 Download a copy of this <a href='https://github.com/SamSamhuns/financial-utility-programs'>github repository. </a>
 Two options are available after this:
 
--   <a href='https://www.anaconda.com/download/#macos'>`Anaconda`</a> is recommended for Windows system.
-Use the following command in the anaconda prompt to install modules from requirements.txt.
+-   <a href='https://www.anaconda.com/download/#macos'>`Anaconda`</a> is recommended for Windows system. Set up a virtual
+environment in Ananconda. Then use the following command in the anaconda prompt to install modules from requirements.txt.
 `conda install --yes --file requirements.txt`
 
--   Install <a href='https://www.python.org/downloads/'>`python`</a> and add it to your `PATH` system variable. Then install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package.                The `pip install -r requirements.txt` command now be used in the command prompt.
+-   Install <a href='https://www.python.org/downloads/'>`python`</a> and add it to your `PATH` system variable. Then install the <a  href='https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation'>`pip`</a> package. 
+
+Then run the following commands.
+```bash
+pip install virtualenv
+virtualenv venv
+venv/Scripts/activate
+pip install -r requirements.txt
+```
 
 ## Running the scripts
 
