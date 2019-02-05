@@ -4,12 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-"""
-Utility Python program for calculating Net Present Value of cash flows over a yearly period
-DCF Calculations for yearly cash flows
-All cash flows must be presented on a yearly basis in the form of a CSV file as described below
-discount rate has to be entered separately.
-"""
+# Utility Python program for calculating Net Present Value of cash flows over a yearly period
+# DCF Calculations for yearly cash flows
+# All cash flows must be presented on a yearly basis in the form of a CSV file as described below
+# discount rate has to be entered separately.
 
 # Author: Samridha Man Shrestha
 # 2018-11-12
