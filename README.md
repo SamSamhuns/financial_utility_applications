@@ -17,7 +17,7 @@ Contains a list of software utilities and programs for financial calculations.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
 
 -   ## [Discounted Cash Flow](#dcf)
-      Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+       Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
@@ -33,7 +33,7 @@ Virtual environment packages with `virtualenv` or `anaconda` should be used for 
 ### Linux/BSD
 
 After cloning the repository, install the required python packages using pip.
-```bash
+```shell
 $ git clone https://github.com/SamSamhuns/financial-utility-programs
 $ virtualenv venv
 $ source venv/bin/source
