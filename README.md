@@ -17,8 +17,8 @@ Contains a list of software utilities and programs for financial calculations.
     <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Return and Volatilities/security_returns.png' width='65%' height='30%'>
 
 -   ## [Discounted Cash Flow](#dcf)
-       Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
-   <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
+    Discounted Cash Flow Calculator that generates a cash flow chart with NPV from a CSV file.
+    <img src='https://raw.githubusercontent.com/SamSamhuns/financial-utility-programs/master/Discounted Cash Flow/cash_flow_fig.png' width='65%' height='30%'>
 
 -   ## [Value_Realization_Model](#vrm)
     Probability modeling of binary stock value expectations from sequence of buys or sells for a stock given a trading scenario for different proportions of informed and uninformed traders.
