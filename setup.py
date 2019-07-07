@@ -101,9 +101,6 @@ setup(
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.
-    #
-    # If using Python 2.6 or earlier, then these have to be included in
-    # MANIFEST.in as well.
     package_data={  # Optional
         'sample': ['package_data.dat'],
     },
@@ -132,11 +129,6 @@ setup(
     #
     # This field corresponds to the "Project-URL" metadata fields:
     # https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
-    #
-    # Examples listed include a pattern for specifying where the package tracks
-    # issues, where the source is hosted, where to say thanks to the package
-    # maintainers, and where to support the project financially. The key is
-    # what's used to render the link text on PyPI.
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
         'Funding': 'https://donate.pypi.org',
