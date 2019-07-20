@@ -1,4 +1,4 @@
-# financial-utility-applications
+# financial_utility_applications
 
 [![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-applications.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-applications)
 [![Updates](https://pyup.io/repos/github/SamSamhuns/financial-utility-programs/shield.svg)](https://pyup.io/repos/github/SamSamhuns/financial-utility-programs/) 
