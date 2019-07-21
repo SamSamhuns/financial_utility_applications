@@ -1,6 +1,6 @@
 # financial_utility_applications
 
-[![Build Status](https://travis-ci.com/SamSamhuns/financial-utility-applications.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial-utility-applications)
+[![Build Status](https://travis-ci.com/SamSamhuns/financial_utility_applications.svg?branch=master)](https://travis-ci.com/SamSamhuns/financial_utility_applications)
 [![Updates](https://pyup.io/repos/github/SamSamhuns/financial-utility-programs/shield.svg)](https://pyup.io/repos/github/SamSamhuns/financial-utility-programs/) 
 [![Python 3](https://pyup.io/repos/github/SamSamhuns/financial-utility-programs/python-3-shield.svg)](https://pyup.io/repos/github/SamSamhuns/financial-utility-programs/) 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0af749bf2bbf4da696bca722188f6454)](https://www.codacy.com/app/samhunsadamant/financial-utility-programs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SamSamhuns/financial-utility-programs&amp;utm_campaign=Badge_Grade) 
