@@ -4,7 +4,7 @@
 # configure updates globally
 # default: all
 # allowed: all, insecure, False
-update: all
+update: False
 
 # configure dependency pinning globally
 # default: True
@@ -18,7 +18,7 @@ pin: True
 # update schedule
 # default: empty
 # allowed: "every day", "every week", ..
-schedule: "every day"
+schedule: "every three months"
 
 # search for requirement files
 # default: True
